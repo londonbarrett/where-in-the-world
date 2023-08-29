@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 export default function Home() {
+  // const countries = fetch("https://restcountries.com/v3.1/all");
+  // console.log("COUNTTRIES", countries);
   return (
     <section>
       <div>
