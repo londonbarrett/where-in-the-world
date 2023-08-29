@@ -1,6 +1,6 @@
 import { Button } from "@nextui-org/button";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 function ThemeToggler() {
   const [mounted, setMounted] = useState(false);
@@ -19,4 +19,4 @@ function ThemeToggler() {
   );
 }
 
-export default ThemeToggler;
+export default memo(ThemeToggler);
