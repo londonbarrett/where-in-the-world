@@ -1,9 +1,9 @@
 "use client";
 
-import { Key, memo } from "react";
+import { memo } from "react";
 import { Button } from "@nextui-org/button";
 import {
-  Dropdown,
+  Dropdown as NUIDropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
@@ -17,12 +17,16 @@ type Props = {
   value?: Selection;
 };
 
-function RegionDropdown({ onChange, regions, value }: Props) {
+function Dropdown({ onChange, regions, value }: Props) {
   return (
-    <Dropdown>
+    <NUIDropdown className="dark:bg-darkBlue-50">
       <DropdownTrigger>
-        <Button variant="bordered" className="capitalize">
-          {value || "Filter by Region"} <Chevron />
+        <Button
+          className="bg-white dark:bg-darkBlue-50 capitalize justify-between shadow-lg"
+          variant="solid"
+          endContent={<Chevron className="dark:fill-white" />}
+        >
+          {value || "Filter by Region"}
         </Button>
       </DropdownTrigger>
       <DropdownMenu
@@ -37,8 +41,8 @@ function RegionDropdown({ onChange, regions, value }: Props) {
           <DropdownItem key={region}>{region}</DropdownItem>
         ))}
       </DropdownMenu>
-    </Dropdown>
+    </NUIDropdown>
   );
 }
 
-export default memo(RegionDropdown);
+export default memo(Dropdown);

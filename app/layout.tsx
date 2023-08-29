@@ -1,9 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Providers from "./providers";
+import { Nunito_Sans } from "next/font/google";
+import Providers from "../components/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["300", "600", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Where In The World",
@@ -17,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={inter.className}>
+      <body className={nunito.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

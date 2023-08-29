@@ -1,12 +1,5 @@
-import { Country } from "@/types";
-import { memo } from "react";
-import Countries from "./countries";
-
-const getCountries = async (): Promise<Country[]> => {
-  const response = await fetch("https://restcountries.com/v3.1/all");
-  const data = await response.json();
-  return data;
-};
+import Countries from "@/components/countries";
+import { getCountries } from "@/services/countries";
 
 async function Home() {
   const countries = await getCountries();

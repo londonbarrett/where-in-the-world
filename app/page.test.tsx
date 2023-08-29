@@ -2,7 +2,7 @@ import { render, waitFor } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import App from "./app";
 import Page from "./page";
-import Providers from "./providers";
+import Providers from "../components/providers";
 import countries from "@/__mocks/countries";
 import { ReactNode } from "react";
 
@@ -38,11 +38,11 @@ describe("App", () => {
     expect(container).toBeTruthy();
   });
   it("Toggles dark mode", async () => {
-    const { baseElement, getAllByText } = await renderPage();
+    const { baseElement, getAllByLabelText } = await renderPage();
     expect(baseElement.parentElement?.getAttribute("style")).toBe(
       "color-scheme: dark;"
     );
-    const toggle = getAllByText(/light/i)[1];
+    const toggle = getAllByLabelText(/light/i)[0];
     await user.click(toggle);
     expect(baseElement.parentElement?.getAttribute("style")).toBe(
       "color-scheme: light;"

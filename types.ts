@@ -1,4 +1,5 @@
 export type IconProps = {
+  className?: string;
   height?: number | string;
 };
 
@@ -18,6 +19,11 @@ export type Country = {
   capital: string[];
   cca3: string;
   currencies: Record<string, Currency>;
+  flags: {
+    png: string;
+    svg: string;
+    alt: string;
+  };
   languages: Record<string, string>;
   name: CountryName;
   population: string;

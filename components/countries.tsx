@@ -1,7 +1,7 @@
 "use client";
 
 import CountryListItem from "@/components/country-list-item";
-import RegionDropdown from "@/components/region-dropdown";
+import Dropdown from "@/components/dropdown";
 import SearchInput from "@/components/search-input";
 import { Country } from "@/types";
 import { Selection } from "@nextui-org/react";
@@ -40,25 +40,22 @@ function Countries({ countries, regions }: Props) {
     []
   );
   return (
-    <section>
-      <div>
-        <SearchInput onChange={queryChangeHandler} value={query} />
-        <RegionDropdown
-          onChange={regionChangeHandler}
-          regions={regions}
-          value={region}
-        />
-        <hr />
-        <ul>
-          {filteredCountries.map((country) => (
-            <li key={country.name.common}>
-              <Link href={`/${country.name.common}`}>
-                <CountryListItem data={country} />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <section className="flex flex-col gap-8">
+      <SearchInput onChange={queryChangeHandler} value={query} />
+      <Dropdown
+        onChange={regionChangeHandler}
+        regions={regions}
+        value={region}
+      />
+      <ul className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {filteredCountries.map((country) => (
+          <li key={country.name.common}>
+            <Link href={`/${country.name.common}`}>
+              <CountryListItem data={country} />
+            </Link>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

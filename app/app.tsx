@@ -1,14 +1,14 @@
-import ThemeToggler from "@/components/theme-toggler";
+import Navigation from "@/components/navigation";
+import cx from "classnames";
 import { ReactNode } from "react";
 
-export default function Providers({ children }: { children: ReactNode }) {
+export default function App({ children }: { children: ReactNode }) {
   return (
     <div>
-      <aside>
-        <h1>Where In The World</h1>
-        <ThemeToggler />
-      </aside>
-      <main>{children}</main>
+      <Navigation />
+      <main className={cx("container", "mx-auto", "px-6", "py-10")}>
+        {children}
+      </main>
     </div>
   );
 }
